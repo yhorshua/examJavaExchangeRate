@@ -1,0 +1,140 @@
+{
+	"info": {
+		"_postman_id": "187489cd-1226-47cc-a5b9-46238f8b3990",
+		"name": "ExchangeRate",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Registro de usuario",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userName\": \"jose\",\r\n    \"password\": \"prueba\",\r\n    \"role\": \"USER\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9090/auth/register/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"auth",
+						"register",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userName\": \"jose\",\r\n    \"password\": \"prueba\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9090/auth/login/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"auth",
+						"login",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Conversion de tipo de cambio",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqb3NlIiwiaWF0IjoxNzQwNjk2NTY3LCJleHAiOjE3NDA3MDAxNjd9.OKes02BJeWKdULsGZ6J6dKi1YEpNpvyjsx11_MJmvBE",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"amount\": \"100.00\",\r\n    \"sourceCurrency\": \"PEN\",\r\n    \"targetCurrency\": \"USD\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9090/exchange/convert",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"exchange",
+						"convert"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Registro tipo de cambio",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqb3NlIiwiaWF0IjoxNzQwNjk2NTY3LCJleHAiOjE3NDA3MDAxNjd9.OKes02BJeWKdULsGZ6J6dKi1YEpNpvyjsx11_MJmvBE",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"currencySource\": \"PEN\",\r\n    \"currencyTarget\": \"USD\",\r\n    \"rate\": \"3.675\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9090/exchange/save/change",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"exchange",
+						"save",
+						"change"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
