@@ -1,0 +1,24 @@
+CREATE TABLE IF NOT EXISTS t_user (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    user_name VARCHAR(255) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    role VARCHAR(50) NOT NULL
+);
+CREATE TABLE IF NOT EXISTS t_exchange_rate (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    currency_source VARCHAR(10) NOT NULL,
+    currency_target VARCHAR(10) NOT NULL,
+    rate DECIMAL(18,6) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS t_transaction (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    user_name VARCHAR(255) NOT NULL,
+    amount DECIMAL(18,6) NOT NULL,
+    source_currency VARCHAR(10) NOT NULL,
+    target_currency VARCHAR(10) NOT NULL,
+    converted_amount DECIMAL(18,6) NOT NULL,
+    rate DECIMAL(18,6) NOT NULL,
+    transaction_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
