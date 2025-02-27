@@ -29,7 +29,7 @@ public class ExchangeRateRest {
     @PostMapping("/save/change")
     public Mono<ExchangeRate> saveExchangeRate(@RequestBody ExchangeRate exchangeRate,
                                                @RequestHeader("Authorization") String authHeader) {
-        if (authHeader == null || ! authHeader.startsWith("Bearer")) {
+        if (authHeader == null || ! authHeader.startsWith("Bearer ")) {
             return Mono.error(new RuntimeException("Token invalido"));
         }
         String token = authHeader.substring(7);
